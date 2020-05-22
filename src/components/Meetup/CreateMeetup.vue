@@ -2,7 +2,7 @@
   <v-container>
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
-        <h2 class="secondary--text">Create a new Event</h2>
+        <h2 class="secondary--text">Create a new Profile</h2>
       </v-flex>
     </v-layout>
     <v-layout row>
@@ -11,26 +11,35 @@
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-text-field
-                name="title"
-                label="Title"
-                id="title"
-                v-model="title"
+                name="name"
+                label="Full Name"
+                id="name"
+                v-model="Name"
                 required></v-text-field>
             </v-flex>
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-text-field
-                name="location"
-                label="Location"
-                id="location"
-                v-model="location"
+                name="RegNo"
+                label="RegNo"
+                id="RegNo"
+                v-model="RegNo"
                 required></v-text-field>
             </v-flex>
           </v-layout>
-          <v-layout row>
+           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <v-btn raised class="primary" @click="onPickFile">Upload Image</v-btn>
+             <v-select
+          :items="items"
+        
+          label="Courses"
+        ></v-select>
+            </v-flex>
+          </v-layout>
+           <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
+              <v-btn raised class="primary" @click="onPickFile">Upload Your Image</v-btn>
               <input
                 type="file"
                 style="display: none"
@@ -44,20 +53,10 @@
               <img :src="imageUrl" height="150">
             </v-flex>
           </v-layout>
+         
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <v-text-field
-                name="description"
-                label="Description"
-                id="description"
-                multi-line
-                v-model="description"
-                required></v-text-field>
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
-              <h2 class="secondary--text">Choose a Date & Time</h2>
+              <h2 class="secondary--text">Choose admission Date & Time</h2>
             </v-flex>
           </v-layout>
           <v-layout row class="mb2">
@@ -89,16 +88,24 @@
 
 <script>
   export default {
+        data: () => ({
+      items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
+    }),
+ 
     data () {
       return {
-        title: '',
-        location: '',
+        Name: '',
+        RegNo: '',
         imageUrl: '',
+        course: '',
+        year: '',
         date: '',
         description: '',
         time: new Date(),
-        image: ''
+        image: '',
+         items: ['Foo', 'Bar', 'Fizz', 'Buzz']
       }
+      
     },
     computed: {
       formIsValid () {

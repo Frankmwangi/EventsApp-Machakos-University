@@ -13,7 +13,7 @@ import RegisterDialog from './components/Meetup/Registration/RegisterDialog.vue'
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#4B317B',
+    primary: '#05d5b5',
     secondary: '#E89E2B',
     accent: '#D33A2F',
     warning: '#FFA000',
@@ -31,7 +31,6 @@ Vue.component('app-edit-meetup-date-dialog', EditMeetupDateDialog)
 Vue.component('app-edit-meetup-time-dialog', EditMeetupTimeDialog)
 Vue.component('app-meetup-register-dialog', RegisterDialog)
 
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,

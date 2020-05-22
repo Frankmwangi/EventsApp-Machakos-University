@@ -1,15 +1,43 @@
 <template>
   <v-container>
-    <v-layout row wrap>
-      <v-flex xs12 sm6 class="text-xs-center text-sm-right">
-        <v-btn large router to="/meetups" class="secondary radius">Explore Events</v-btn>
+    <v-layout row >
+  
+      
+      <!-- <v-flex xs12 sm6 class="text-xs-center text-sm-right">
+        <v-btn large router to="/meetups" class="secondary radius">View Profile</v-btn>
       </v-flex>
       <v-flex xs12 sm6 class="text-xs-center text-sm-left">
-        <v-btn large router to="/meetup/new" class="secondary radius">Organize Event</v-btn>
-      </v-flex>
+        <v-btn large router to="/meetup/new" class="secondary radius"> Create profile</v-btn>
+      </v-flex> -->
+      <v-flex xs12 sm6 offset-sm3 text-uppercase class="portal">Welcome to our registration portal</v-flex>
+    </v-layout>
+    <br>
+    <br>
+    <br>
+    <v-layout>
+          <v-flex xs12 sm6 offset-sm3 text-uppercase >fill in your course in the dropdown below</v-flex>
     </v-layout>
     <v-layout>
-      <v-flex xs12 class="text-xs-center">
+       
+         <v-flex xs12 sm6 offset-sm3>
+           <form @submit.prevent="onCreateCourse">
+             <v-layout>
+             <v-select 
+             label="Course" 
+             :items="items" 
+             v-model="selectedItem"></v-select></v-layout>
+          <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
+              <v-btn
+                class="primary"
+                :disabled="selectedItem === null"
+                type="submit">SUBMIT</v-btn>
+            </v-flex>
+          </v-layout>
+         </form>
+            </v-flex>
+           
+      <!-- <v-flex xs12 class="text-xs-center">
         <v-progress-circular
           indeterminate
           class="primary--text"
@@ -36,14 +64,48 @@
     <v-layout row wrap  class="mt-2">
       <v-flex xs12 class="text-xs-center">
        <p class="bolder2">Join our awesome Events!</p>
-      </v-flex>
+      </v-flex> -->
     </v-layout>
+    
   </v-container>
 </template>
 
 <script>
   export default {
+      data() {
+        return{
+        
+      items: ['BSc. in Physics', 
+      'BSc. in Analytical Chemistry', 
+      'BSc. in Industrial Chemistry', 
+      'BSc. in Biogeochemistry',
+      'Bachelor of Science in Biochemistry',
+      'BSc. in Statistics',
+      'Bachelor of Science (BSc.)',
+      'BSc. in Biology',
+      'BSc. in Microbiology and Biotechnology',
+      'BSc. in Environmental Conservation and Natural Resource',
+      'BSc. in Environmental Sciences',
+      'BSc. in Information Technology',
+      'Diploma in information Technology',
+      'Certificate in Computer & Portable Devices',
+      'Certificate in Computer Repair & Maintenance',
+      'Certificate in Computer Applications',
+      'PhD in Physics',
+      'Master of Science in Applied Parasitology',
+      'Master of Science in Biology of Conservation',
+      'Doctor of Philosophy in Applied Parasitology',
+      'Doctor of Philosophy in Biology of Conservation',
+      'Doctor of Philosophy in Applied Microbiology',
+],
+selectedItem: null
+        }
+      },
     computed: {
+      formIsValid() {
+        return 
+          (this.items !== items ) ? true : false;
+      },
       meetups () {
         return this.$store.getters.featuredMeetups
       },
@@ -69,6 +131,11 @@
    box-sizing: border-box;
    font-size: 2em;
    padding: 10px;
+}
+.portal{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 25px;
+  font-weight: bolder;
 }
 
 .radius {

@@ -3,7 +3,7 @@
     <v-navigation-drawer app temporary v-model="sideNav">
       <v-list>
          <router-link class="uppercase" to="/" tag="span" style="cursor: pointer">
-        <img class="img2" src="./assets/logo2.jpg" alt="">
+        <img class="img2" src="./assets/logo3.jpg" alt="">
          </router-link>
         <v-list-tile
           v-for="item in menuItems"
@@ -30,8 +30,8 @@
         class="hidden-sm-and-up "></v-toolbar-side-icon>
       <v-toolbar-title>
         <router-link  class="uppercase" to="/" tag="span" style="cursor: pointer">
-        <img class="img" src="./assets/logo2.jpg" alt="">
-              Events
+        <img class="img" src="./assets/logo3.jpg" alt="">
+              EMBU UNI
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -76,8 +76,8 @@
         ]
         if (this.userIsAuthenticated) {
           menuItems = [
-            {icon: 'supervisor_account', title: 'View Events', link: '/meetups'},
-            {icon: 'room', title: 'Organize Event', link: '/meetup/new'},
+            {icon: 'supervisor_account', title: 'view profile', link: '/meetups'},
+            {icon: 'room', title: 'create profile', link: '/meetup/new'},
             {icon: 'person', title: 'Profile', link: '/profile'}
           ]
         }
