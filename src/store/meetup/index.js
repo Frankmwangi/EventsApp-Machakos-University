@@ -32,11 +32,17 @@ export default {
       const meetup = state.loadedMeetups.find(meetup => {
         return meetup.id === payload.id
       })
-      if (payload.title) {
-        meetup.title = payload.title
+      if (payload.name) {
+        meetup.name = payload.name
       }
-      if (payload.description) {
-        meetup.description = payload.description
+      if (payload.regno) {
+        meetup.regno = payload.regno
+      }
+      if (payload.course) {
+        meetup.course = payload.course
+      }
+      if (payload.Age) {
+        meetup.Age = payload.Age
       }
       if (payload.date) {
         meetup.date = payload.date
@@ -53,12 +59,13 @@ export default {
           for (let key in obj) {
             meetups.push({
               id: key,
-              title: obj[key].title,
-              description: obj[key].description,
+              name: obj[key].name,
+              regno: obj[key].regno,
               imageUrl: obj[key].imageUrl,
               image: obj[key].image,
               date: obj[key].date,
-              location: obj[key].location,
+              Age: obj[key].Age,
+              course:obj[key].course,
               creatorId: obj[key].creatorId
             })
           }
@@ -74,10 +81,11 @@ export default {
     },
     createMeetup ({commit, getters}, payload) {
       const meetup = {
-        title: payload.title,
-        location: payload.location,
-        description: payload.description,
+        name: payload.name,
+        regno: payload.regno,
         date: payload.date.toISOString(),
+        course:payload.course,
+        Age:payload.Age,
         creatorId: getters.user.id,
         image: payload.image,
         imageUrl: payload.imageUrl
@@ -113,11 +121,17 @@ export default {
     updateMeetupData ({commit}, payload) {
       commit('setLoading', true)
       const updateObj = {}
-      if (payload.title) {
-        updateObj.title = payload.title
+      if (payload.name) {
+        updateObj.name = payload.name
       }
-      if (payload.description) {
-        updateObj.description = payload.description
+      if (payload.regno) {
+        updateObj.regno = payload.regno
+      }
+      if (payload.course) {
+        meetup.course = payload.course
+      }
+      if (payload.Age) {
+        meetup.Age = payload.Age
       }
       if (payload.date) {
         updateObj.date = payload.date

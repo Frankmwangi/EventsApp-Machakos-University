@@ -3,7 +3,8 @@
 
 
 .picture {
-  height: 100% ;
+  height: 130px ;
+  width: 150px;
   object-fit: contain;
 }
 </style>
@@ -21,19 +22,32 @@
     <v-layout row wrap v-else>
       <v-flex xs12>
         <v-card>
-          <v-card-title>
-            <h2 class="primary--text">{{ meetup.title }}</h2>
+         
+          <v-img class="picture" style=""
+            :src="meetup.imageUrl"
+          ></v-img>
+           <v-card-title>
+            <h2 class="primary--text">STUDENT:{{ meetup.name }}</h2>
+            
             <template v-if="userIsCreator">
               <v-spacer></v-spacer>
               <app-edit-meetup-details-dialog :meetup="meetup"></app-edit-meetup-details-dialog>
             </template>
           </v-card-title>
-          <v-card-media class="picture"
-            :src="meetup.imageUrl"
-          ></v-card-media>
           <v-card-text>
+             <div class="accent--text">
+              <h2>Course:{{ meetup.course}}</h2>
+              </div>
+               <div class="accent--text">
+              <h2>Age:{{ meetup.Age}}</h2>
+              </div>
+             <div class="accent--text">
+              <h2>REGNO:{{ meetup.regno}}</h2>
+              </div>
+          
             <div class="accent--text">
-              <h2>{{ meetup.date | date }} - {{ meetup.location }}</h2></div>
+              <h2>ADMISSION DATE:{{ meetup.date | date }}</h2></div>
+
             <div>
               <app-edit-meetup-date-dialog
                 :meetup="meetup" v-if="userIsCreator">

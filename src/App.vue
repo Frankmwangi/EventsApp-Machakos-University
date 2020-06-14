@@ -80,12 +80,21 @@
             {icon: 'room', title: 'create profile', link: '/meetup/new'},
             {icon: 'person', title: 'Profile', link: '/profile'}
           ]
+
         }
+        // if (this.userIsCreator) {
+        //   menuItems = [
+        //     { icon: 'supervisor_account', title: 'view profile', link: '/meetups'}
+        //   ]
+        // }
         return menuItems
       },
       userIsAuthenticated () {
         return this.$store.getters.user !== null && this.$store.getters.user !== undefined
-      }
+      },
+      // userIsCreator () {
+      //   return this.$store.getters.user.id === this.meetup.creatorId
+      // }
     },
     methods: {
       onLogout () {

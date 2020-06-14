@@ -7,7 +7,7 @@
       <v-container>
         <v-layout row wrap>
           <v-flex xs12>
-            <v-card-title>Edit Event</v-card-title>
+            <v-card-title>Edit Profile</v-card-title>
           </v-flex>
         </v-layout>
         <v-divider></v-divider>
@@ -15,17 +15,17 @@
           <v-flex xs12>
             <v-card-text>
               <v-text-field
-                name="title"
-                label="Title"
+                name="name"
+                label="Name"
                 id="title"
-                v-model="editedTitle"
+                v-model="editedName"
                 required></v-text-field>
               <v-text-field
-                name="description"
-                label="Description"
-                id="description"
-                multi-line
-                v-model="editedDescription"
+                name="regno"
+                label="regno"
+                id="regno"
+                
+                v-model="editedRegno"
                 required></v-text-field>
             </v-card-text>
           </v-flex>
@@ -53,20 +53,20 @@
     data () {
       return {
         editDialog: false,
-        editedTitle: this.meetup.title,
-        editedDescription: this.meetup.description
+        editedName: this.meetup.name,
+        editedRegno: this.meetup.regno
       }
     },
     methods: {
       onSaveChanges () {
-        if (this.editedTitle.trim() === '' || this.editedDescription.trim() === '') {
+        if (this.editedName.trim() === '' || this.editedRegno.trim() === '') {
           return
         }
         this.editDialog = false
         this.$store.dispatch('updateMeetupData', {
           id: this.meetup.id,
-          title: this.editedTitle,
-          description: this.editedDescription
+          name: this.editedName,
+          regno: this.editedRegno
         })
       }
     }

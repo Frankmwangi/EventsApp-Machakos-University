@@ -139,6 +139,7 @@ export default {
   },
   getters: {
     user (state) {
+      console.log(state.user)
       return state.user
     }
   }

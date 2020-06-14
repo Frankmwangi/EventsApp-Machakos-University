@@ -20,17 +20,19 @@
     <v-layout>
        
          <v-flex xs12 sm6 offset-sm3>
-           <form @submit.prevent="onCreateCourse">
+           <form>
              <v-layout>
              <v-select 
-             label="Course" 
+             label="Course"
+             :selected="selected"
              :items="items" 
-             v-model="selectedItem"></v-select></v-layout>
+             v-model="selected"></v-select></v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-btn
                 class="primary"
-                :disabled="selectedItem === null"
+                
+                @click.prevent="submitCourse()"
                 type="submit">SUBMIT</v-btn>
             </v-flex>
           </v-layout>
@@ -72,6 +74,7 @@
 
 <script>
   export default {
+    
       data() {
         return{
         
@@ -98,14 +101,10 @@
       'Doctor of Philosophy in Biology of Conservation',
       'Doctor of Philosophy in Applied Microbiology',
 ],
-selectedItem: null
+selected: ''
         }
       },
     computed: {
-      formIsValid() {
-        return 
-          (this.items !== items ) ? true : false;
-      },
       meetups () {
         return this.$store.getters.featuredMeetups
       },
@@ -114,9 +113,16 @@ selectedItem: null
       }
     },
     methods: {
+      optionChanged:function (value) {
+        this.$emit('update:option',value)
+      },
       onLoadMeetup (id) {
         this.$router.push('/meetups/' + id)
-      }
+      },
+       submitCourse () {
+         this.$emit("submitCourse")
+      this.$router.push('/meetup/new')
+      },
     }
   }
 </script>

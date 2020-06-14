@@ -2,6 +2,7 @@
   <v-container>
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
+             
         <h2 class="secondary--text">Create a new Profile</h2>
       </v-flex>
     </v-layout>
@@ -14,7 +15,17 @@
                 name="name"
                 label="Full Name"
                 id="name"
-                v-model="Name"
+                v-model="name"
+                required></v-text-field>
+            </v-flex>
+          </v-layout>
+            <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
+              <v-text-field
+                name="course"
+                label="Course"
+                id="course"
+                v-model="course"
                 required></v-text-field>
             </v-flex>
           </v-layout>
@@ -22,19 +33,20 @@
             <v-flex xs12 sm6 offset-sm3>
               <v-text-field
                 name="RegNo"
-                label="RegNo"
+                label="Registration Number"
                 id="RegNo"
-                v-model="RegNo"
+                v-model="regno"
                 required></v-text-field>
             </v-flex>
           </v-layout>
            <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-             <v-select
-          :items="items"
-        
-          label="Courses"
-        ></v-select>
+              <v-text-field
+                name="Age"
+                label="Age"
+                id="Age"
+                v-model="Age"
+                required></v-text-field>
             </v-flex>
           </v-layout>
            <v-layout row>
@@ -80,39 +92,52 @@
                 type="submit">Create Event</v-btn>
             </v-flex>
           </v-layout>
-        </form>
-      </v-flex>
+          </form>
+          </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
+import Home from '../Home'
   export default {
+    components: {
+      Home
+    },
+    props: {
+      items: {
+        type: String
+      },
+      selected: {
+       type: String
+      }
+    },
         data: () => ({
       items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
     }),
- 
     data () {
       return {
-        Name: '',
-        RegNo: '',
-        imageUrl: '',
         course: '',
-        year: '',
+        name: '',
+        regno: '',
+        imageUrl: '',
         date: '',
-        description: '',
         time: new Date(),
         image: '',
-         items: ['Foo', 'Bar', 'Fizz', 'Buzz']
+        Age: ''
+     
       }
-      
     },
+    
     computed: {
       formIsValid () {
-        return this.title !== '' &&
-          this.location !== '' &&
-          this.imageUrl !== '' &&
-          this.description !== ''
+        return this.name !== '' &&
+        this.regno !== '' &&
+        this.imageUrl !== '' &&
+        this.date !== '' &&
+        this.course !== ''&&
+        this.Age !== '' &&
+        this.time !== ''
       },
       getToday () {
         let month = (new Date().getMonth() + 1)
@@ -142,6 +167,7 @@
       }
     },
     methods: {
+    
       allowedDates () {
         return '2019-05-23'
       },
@@ -153,15 +179,18 @@
           return
         }
         const meetupData = {
-          title: this.title,
-          location: this.location,
+          name: this.name,
+          regno: this.regno,
           image: this.image,
           imageUrl: this.imageUrl,
-          description: this.description,
-          date: this.submittableDateTime
+          date: this.submittableDateTime,
+          course:this.course,
+          Age:this.Age
         }
+        
         this.$store.dispatch('createMeetup', meetupData)
         this.$router.push('/meetups')
+        console.log(user.id)
       },
       onPickFile () {
         this.$refs.fileInput.click()
@@ -182,4 +211,5 @@
       }
     }
   }
+  
 </script>
