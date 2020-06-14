@@ -1,7 +1,18 @@
 <template>
-  <v-container>
-    <v-layout row >
-  
+  <v-container class="Home">
+    <header class= "header">
+      <div class="header__text-box">
+                <h1 class="heading-primary">
+                    <span class="heading-primary--main">WELCOME TO OUR REGISTRATION PORTAL</span>
+                  </h1>
+
+                  <v-btn
+                class="primary"
+                
+                @click.prevent="submitCourse()"
+                type="submit">REGISTER HERE</v-btn>
+            </div>
+    </header>
       
       <!-- <v-flex xs12 sm6 class="text-xs-center text-sm-right">
         <v-btn large router to="/meetups" class="secondary radius">View Profile</v-btn>
@@ -9,7 +20,7 @@
       <v-flex xs12 sm6 class="text-xs-center text-sm-left">
         <v-btn large router to="/meetup/new" class="secondary radius"> Create profile</v-btn>
       </v-flex> -->
-      <v-flex xs12 sm6 offset-sm3 text-uppercase class="portal">Welcome to our registration portal</v-flex>
+      <!-- <v-flex xs12 sm6 offset-sm3 text-uppercase class="portal">Welcome to our registration portal</v-flex>
     </v-layout>
     <br>
     <br>
@@ -37,7 +48,7 @@
             </v-flex>
           </v-layout>
          </form>
-            </v-flex>
+            </v-flex> -->
            
       <!-- <v-flex xs12 class="text-xs-center">
         <v-progress-circular
@@ -67,7 +78,7 @@
       <v-flex xs12 class="text-xs-center">
        <p class="bolder2">Join our awesome Events!</p>
       </v-flex> -->
-    </v-layout>
+ 
     
   </v-container>
 </template>
@@ -128,6 +139,34 @@ selected: ''
 </script>
 
 <style scoped>
+.container {
+  max-width: unset !important;
+}
+.Home{
+ padding :0;
+ max-width: 100vh;
+}
+.header {
+  height: 91.2vh;
+  position: relative;
+  background-image:
+   linear-gradient(to right, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)), url(../assets/home4.jpg);
+  background-size: cover;
+  padding:0;
+}
+.header__text-box{
+   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.heading-primary--main{
+color: white;
+font-family: "lato",sans-serif;
+font-size: 3rem;
+font-weight: 400;
+} 
  .title {
    position: static;
    text-align: center;

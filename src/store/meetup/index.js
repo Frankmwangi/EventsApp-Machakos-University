@@ -41,8 +41,8 @@ export default {
       if (payload.course) {
         meetup.course = payload.course
       }
-      if (payload.Age) {
-        meetup.Age = payload.Age
+      if (payload.age) {
+        meetup.age = payload.age
       }
       if (payload.date) {
         meetup.date = payload.date
@@ -64,7 +64,7 @@ export default {
               imageUrl: obj[key].imageUrl,
               image: obj[key].image,
               date: obj[key].date,
-              Age: obj[key].Age,
+              age: obj[key].age,
               course:obj[key].course,
               creatorId: obj[key].creatorId
             })
@@ -85,7 +85,7 @@ export default {
         regno: payload.regno,
         date: payload.date.toISOString(),
         course:payload.course,
-        Age:payload.Age,
+        age:payload.age,
         creatorId: getters.user.id,
         image: payload.image,
         imageUrl: payload.imageUrl
@@ -128,10 +128,10 @@ export default {
         updateObj.regno = payload.regno
       }
       if (payload.course) {
-        meetup.course = payload.course
+        updateObj.course = payload.course
       }
-      if (payload.Age) {
-        meetup.Age = payload.Age
+      if (payload.age) {
+        updateObj.age = payload.age
       }
       if (payload.date) {
         updateObj.date = payload.date

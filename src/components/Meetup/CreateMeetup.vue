@@ -45,7 +45,7 @@
                 name="Age"
                 label="Age"
                 id="Age"
-                v-model="Age"
+                v-model="age"
                 required></v-text-field>
             </v-flex>
           </v-layout>
@@ -124,7 +124,7 @@ import Home from '../Home'
         date: '',
         time: new Date(),
         image: '',
-        Age: ''
+        age: ''
      
       }
     },
@@ -136,7 +136,7 @@ import Home from '../Home'
         this.imageUrl !== '' &&
         this.date !== '' &&
         this.course !== ''&&
-        this.Age !== '' &&
+        this.age !== '' &&
         this.time !== ''
       },
       getToday () {
@@ -185,7 +185,7 @@ import Home from '../Home'
           imageUrl: this.imageUrl,
           date: this.submittableDateTime,
           course:this.course,
-          Age:this.Age
+          age:this.age
         }
         
         this.$store.dispatch('createMeetup', meetupData)

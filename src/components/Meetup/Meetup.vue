@@ -6,6 +6,8 @@
   height: 130px ;
   width: 150px;
   object-fit: contain;
+  border-radius:120px;
+  margin-left: 100px;
 }
 </style>
 <template>
@@ -39,7 +41,7 @@
               <h2>Course:{{ meetup.course}}</h2>
               </div>
                <div class="accent--text">
-              <h2>Age:{{ meetup.Age}}</h2>
+              <h2>Age:{{ meetup.age}}</h2>
               </div>
              <div class="accent--text">
               <h2>REGNO:{{ meetup.regno}}</h2>

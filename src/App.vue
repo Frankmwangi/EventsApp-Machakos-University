@@ -31,7 +31,7 @@
       <v-toolbar-title>
         <router-link  class="uppercase" to="/" tag="span" style="cursor: pointer">
         <img class="img" src="./assets/logo3.jpg" alt="">
-              EMBU UNI
+              EMBU COLLEGE
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
